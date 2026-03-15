@@ -174,45 +174,27 @@ Small changes in predictors can lead to large swings in estimated coefficients, 
 
 ### Motivation for Regularized Models
 
-Because vehicle design variables are structurally correlated, standard OLS models can become unstable.
+The OLS diagnostics indicate that several key vehicle design variables — such as engine size, horsepower, and vehicle weight — are highly correlated. This multicollinearity can make coefficient estimates unstable and sensitive to small changes in the data.
 
-To address this, the analysis introduces **regularized regression methods** that shrink or select coefficients to improve model stability and predictive performance:
+To address this issue, the analysis introduces **regularized regression methods**, which stabilize model estimates by shrinking or selectively penalizing coefficients.
+
+The following models were evaluated:
 
 - Ridge Regression
 - Lasso Regression
 - Elastic Net
 
-### Actual vs Predicted Prices
-
-![OLS Prediction](lm_baseline_actual_vs_predicted_log_test.png)
-
-### Residual Diagnostics
-
-![OLS Residual Plot](lm_baseline_residuals_vs_fitted.png)
-
-These diagnostics highlight why **multicollinearity can affect coefficient stability**.
+These methods help improve model stability while preserving interpretability of the most important price drivers.
 
 ---
 
-# Regularized Regression Models
+# Model Comparison
 
-To address multicollinearity and improve generalization, the project compares:
-
-- Ridge Regression
-- Lasso Regression
-- Elastic Net
-
-These models shrink or select coefficients to produce **more stable predictions**.
-
-### Model Comparison
+The performance of the regularized models was compared to identify the best balance between predictive accuracy and interpretability.
 
 ![Model Comparison](model_comparison_test_rmse_log.png)
 
-Elastic Net achieves the best balance between:
-
-- predictive performance
-- interpretability
-
+Among the evaluated models, **Elastic Net achieved the best overall performance**, combining the coefficient shrinkage benefits of Ridge regression with the variable selection properties of Lasso.
 ---
 
 # Elastic Net Model Performance
