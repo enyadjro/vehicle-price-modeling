@@ -1,9 +1,10 @@
 # Interpretable Modeling of New Vehicle Prices: Multicollinearity, Regularization, and Economic Structure
 
 ## Key Results
-- Elastic Net achieved the best predictive performance among evaluated models
-- Vehicle weight, footprint, and engine size are the strongest price drivers
-- Regularization improved coefficient stability in the presence of multicollinearity
+
+- **Elastic Net achieved the lowest test RMSE**, outperforming OLS, Ridge, and Lasso models.
+- **Vehicle weight, footprint, and engine size emerged as the strongest price drivers**, reflecting the importance of platform size and performance characteristics in vehicle pricing.
+- **Regularization improved coefficient stability** in the presence of strong multicollinearity among engineering variables such as horsepower, engine size, and vehicle weight.
 ---
 This project develops an **end-to-end interpretable regression pipeline** to model new vehicle prices using automotive characteristics such as:
 
