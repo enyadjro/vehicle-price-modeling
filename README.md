@@ -1,5 +1,10 @@
 # Interpretable Modeling of New Vehicle Prices: Multicollinearity, Regularization, and Economic Structure
 
+## Key Results
+- Elastic Net achieved the best predictive performance among evaluated models
+- Vehicle weight, footprint, and engine size are the strongest price drivers
+- Regularization improved coefficient stability in the presence of multicollinearity
+  
 This project develops an **end-to-end interpretable regression pipeline** to model new vehicle prices using automotive characteristics such as:
 
 - performance
@@ -134,7 +139,24 @@ To diagnose this, the project evaluates:
 These diagnostics identify instability in **ordinary least squares models**.
 
 ---
+# Model Evaluation Metrics
 
+Model performance was evaluated using **out-of-sample test data** to ensure that model comparisons reflect generalization ability rather than in-sample fit.
+
+The following metrics were used:
+
+**Root Mean Squared Error (RMSE)**  
+RMSE measures the average magnitude of prediction errors and penalizes large errors more heavily. It is commonly used for regression tasks and provides an interpretable measure of model accuracy.
+
+**Mean Absolute Error (MAE)**  
+MAE captures the average absolute difference between predicted and actual values. Unlike RMSE, it treats all errors equally and provides a more robust measure when outliers are present.
+
+**Model interpretability considerations**  
+In addition to predictive performance, models were evaluated based on the stability and interpretability of coefficient estimates. This is particularly important for economic interpretation of vehicle price drivers.
+
+Because the modeling target is **log(MSRP)**, RMSE and MAE were computed on the log scale during model training and then translated back to price predictions for visualization and interpretation.
+
+---
 # Baseline Model: Ordinary Least Squares
 
 An initial **Ordinary Least Squares (OLS)** regression model was built to establish a benchmark for predicting vehicle prices.
@@ -190,7 +212,7 @@ These methods help improve model stability while preserving interpretability of 
 
 # Model Comparison
 
-The performance of the regularized models was compared to identify the best balance between predictive accuracy and interpretability.
+The performance of the regularized models was compared using **test-set RMSE and MAE** to identify the best balance between predictive accuracy and interpretability.
 
 ![Model Comparison](model_comparison_test_rmse_log.png)
 
