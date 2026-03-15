@@ -137,7 +137,50 @@ These diagnostics identify instability in **ordinary least squares models**.
 
 # Baseline Model: Ordinary Least Squares
 
-An initial **OLS regression model** provides a benchmark for comparison.
+An initial **Ordinary Least Squares (OLS)** regression model was built to establish a benchmark for predicting vehicle prices.
+
+The model captures many expected economic relationships:
+
+- Larger vehicles tend to have higher prices
+- Higher horsepower and engine size generally increase price
+- Sports car classifications command price premiums
+- Rear-wheel drive configurations are associated with higher market value
+
+### Model Diagnostics
+
+Actual vs Predicted Prices
+
+![OLS Prediction](lm_baseline_actual_vs_predicted_log_test.png)
+
+Residual Diagnostics
+
+![OLS Residual Plot](lm_baseline_residuals_vs_fitted.png)
+
+### Key Observations
+
+While the OLS model captures general pricing trends, several issues appear:
+
+**Coefficient instability**
+
+Many engineering variables (engine size, horsepower, weight, vehicle footprint) are strongly correlated, leading to unstable coefficient estimates.
+
+**Multicollinearity**
+
+Variance Inflation Factor (VIF) diagnostics confirm substantial multicollinearity among design variables.
+
+**Model sensitivity**
+
+Small changes in predictors can lead to large swings in estimated coefficients, reducing interpretability.
+
+### Motivation for Regularized Models
+
+Because vehicle design variables are structurally correlated, standard OLS models can become unstable.
+
+To address this, the analysis introduces **regularized regression methods** that shrink or select coefficients to improve model stability and predictive performance:
+
+- Ridge Regression
+- Lasso Regression
+- Elastic Net
 
 ### Actual vs Predicted Prices
 
