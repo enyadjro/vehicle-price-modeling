@@ -320,13 +320,13 @@ By comparing predicted price based on vehicle attributes with actual MSRP, manuf
 
 This modeling framework can support several real-world decisions:
 
-- **Pricing Strategy**
+- **Pricing Strategy**:
   Estimate expected MSRP based on design attributes before product launch.
 
-- **Product Planning**
+- **Product Planning**:
   Evaluate how proposed design changes may affect price positioning.
 
-- **Competitive Intelligence**
+- **Competitive Intelligence**:
   Benchmark competing vehicles with similar specifications to identify pricing gaps.
 
 Because the model is interpretable, decision makers can understand **why a vehicle receives a certain price prediction**, not just the prediction itself.
