@@ -4,7 +4,7 @@
 - Elastic Net achieved the best predictive performance among evaluated models
 - Vehicle weight, footprint, and engine size are the strongest price drivers
 - Regularization improved coefficient stability in the presence of multicollinearity
-  
+---
 This project develops an **end-to-end interpretable regression pipeline** to model new vehicle prices using automotive characteristics such as:
 
 - performance
