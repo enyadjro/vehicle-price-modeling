@@ -36,9 +36,9 @@ Manufacturers must balance these factors when positioning vehicles in the market
 
 This project models vehicle prices using regression techniques to answer two key questions:
 
-**1️⃣ Which vehicle attributes drive price the most?**
+**1️. Which vehicle attributes drive price the most?**
 
-**2️⃣ How do we build stable, interpretable models when predictors are highly correlated?**
+**2️. How do we build stable, interpretable models when predictors are highly correlated?**
 
 ---
 
@@ -74,14 +74,37 @@ EDA → Feature Engineering → Multicollinearity Diagnostics
 
 ---
 
-# Exploratory Data Analysis
+# Exploratory Data Analysis (EDA)
 
-Initial analysis examines:
+EDA was used to understand the **economic drivers of vehicle prices before modeling**.
 
-- price distributions
-- relationships between vehicle characteristics and MSRP
-- potential outliers
+Key findings include:
 
+**Vehicle size strongly influences price**
+
+Larger and heavier vehicles tend to command higher prices, reflecting both manufacturing costs and consumer demand for larger platforms.
+
+**Performance characteristics matter**
+
+Engine size and horsepower show strong positive relationships with price, particularly for performance-oriented vehicle segments.
+
+**Vehicle segment effects**
+
+Sports cars and luxury-oriented vehicles exhibit substantially higher prices compared to standard sedans and compact cars.
+
+**Fuel economy tradeoffs**
+
+Higher fuel economy vehicles tend to be associated with smaller vehicle platforms and lower price segments.
+
+**Strong predictor correlations**
+
+Several design variables — including engine size, horsepower, and weight — are highly correlated. This confirms the need for **multicollinearity diagnostics and regularized regression methods**.
+
+These insights guided **feature engineering, model specification, and the use of regularization techniques** to produce stable and interpretable models.
+
+### Relationship Between Vehicle Weight and Price
+
+![Weight vs Price](eda_retail_price_vs_weight.png)
 ---
 
 # Feature Engineering
