@@ -1,5 +1,11 @@
 # Interpretable Modeling of New Vehicle Prices: Multicollinearity, Regularization, and Economic Structure
 
+![R](https://img.shields.io/badge/Language-R-blue)
+![Machine Learning](https://img.shields.io/badge/Method-Machine%20Learning-orange)
+![Regression](https://img.shields.io/badge/Model-Regression-green)
+![Elastic Net](https://img.shields.io/badge/Regularization-Elastic%20Net-purple)
+![Interpretability](https://img.shields.io/badge/Focus-Interpretability-lightgrey)
+
 ## Key Results
 
 - **Elastic Net achieved the lowest test RMSE**, outperforming OLS, Ridge, and Lasso models.
