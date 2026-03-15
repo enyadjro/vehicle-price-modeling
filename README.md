@@ -252,26 +252,6 @@ These results reflect real automotive market dynamics:
 
 ---
 
-# Repository Structure
-
-```
-vehicle-price-modeling
-│
-├── data
-│   └── raw dataset
-│
-├── scripts
-│   ├── 01_data_exploration.R
-│   ├── 02_multicollinearity_diagnostics.R
-│   ├── 03_feature_engineering.R
-│   ├── 04_linear_model_baseline.R
-│   ├── 05_regularized_models.R
-│   └── 06_model_interpretation.R
-│
-└── modeling figures
-```
----
-
 # Interpretability & Business Implications
 
 ### Key Drivers of Vehicle Price
@@ -333,8 +313,28 @@ This modeling framework can support several real-world decisions:
   Benchmark competing vehicles with similar specifications to identify pricing gaps.
 
 Because the model is interpretable, decision makers can understand **why a vehicle receives a certain price prediction**, not just the prediction itself.
+
 ---
 
+# Repository Structure
+
+```
+vehicle-price-modeling
+│
+├── data
+│   └── raw dataset
+│
+├── scripts
+│   ├── 01_data_exploration.R
+│   ├── 02_multicollinearity_diagnostics.R
+│   ├── 03_feature_engineering.R
+│   ├── 04_linear_model_baseline.R
+│   ├── 05_regularized_models.R
+│   └── 06_model_interpretation.R
+│
+└── modeling figures
+```
+---
 # Tools Used
 
 - R  
