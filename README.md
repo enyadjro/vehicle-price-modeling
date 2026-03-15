@@ -269,19 +269,67 @@ vehicle-price-modeling
 
 ---
 
-# Business Applications
+# Interpretability & Business Implications
 
-This analysis demonstrates how interpretable models can support:
+### Key Drivers of Vehicle Price
 
-### Pricing Strategy
-Understanding how vehicle attributes contribute to price helps guide MSRP decisions.
+The Elastic Net model highlights several variables that consistently influence vehicle prices:
 
-### Product Positioning
-Manufacturers can identify which design features most strongly influence perceived value.
+- **Vehicle Weight / Footprint**
+  Larger vehicles command higher prices, reflecting both higher production costs and consumer demand for larger platforms and luxury features.
 
-### Competitive Benchmarking
-Automakers can compare vehicles with similar characteristics to identify pricing gaps.
+- **Sports Car Classification**
+  Vehicles identified as sports cars carry a strong price premium, reflecting performance positioning and brand perception.
 
+- **Rear-Wheel Drive (RWD)**
+  RWD vehicles tend to appear in higher-end segments such as performance and luxury models, contributing to higher prices.
+
+- **Engine Size and Performance Characteristics**
+  Larger engines are associated with higher vehicle prices, particularly in segments where performance and towing capacity are valued.
+
+These patterns are consistent with known automotive market dynamics and confirm that the model captures economically meaningful pricing drivers.
+
+---
+
+### Strategic Pricing Insights
+
+The analysis illustrates how interpretable regression models can support **data-driven pricing decisions**.
+
+**Product Design Tradeoffs**
+
+Manufacturers can evaluate how engineering decisions (engine size, vehicle dimensions, drivetrain) translate into expected market price.
+
+**Vehicle Segment Positioning**
+
+Features such as sports classification or drivetrain configuration help identify whether a vehicle is positioned within:
+
+- economy segments
+- mid-market segments
+- premium performance segments
+
+**Competitive Benchmarking**
+
+By comparing predicted price based on vehicle attributes with actual MSRP, manufacturers can identify:
+
+- vehicles that may be **overpriced relative to their features**
+- vehicles that may be **undervalued in the market**
+
+---
+
+### Example Business Use Cases
+
+This modeling framework can support several real-world decisions:
+
+- **Pricing Strategy**
+  Estimate expected MSRP based on design attributes before product launch.
+
+- **Product Planning**
+  Evaluate how proposed design changes may affect price positioning.
+
+- **Competitive Intelligence**
+  Benchmark competing vehicles with similar specifications to identify pricing gaps.
+
+Because the model is interpretable, decision makers can understand **why a vehicle receives a certain price prediction**, not just the prediction itself.
 ---
 
 # Tools Used
