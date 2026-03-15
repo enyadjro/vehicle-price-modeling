@@ -1,195 +1,228 @@
-Interpretable Modeling of New Vehicle Prices
+# Interpretable Modeling of New Vehicle Prices
 
-This project develops an end-to-end interpretable regression pipeline to model new vehicle prices using automotive characteristics such as performance, fuel economy, drivetrain, body type, and vehicle size.
+This project develops an **end-to-end interpretable regression pipeline** to model new vehicle prices using automotive characteristics such as:
 
-Rather than focusing only on predictive accuracy, the project emphasizes economic interpretability and model stability, combining multicollinearity diagnostics with modern regularization methods (Ridge, Lasso, and Elastic Net).
+- performance
+- fuel economy
+- drivetrain
+- body type
+- vehicle size
 
-The goal is to understand what drives vehicle market value and demonstrate how interpretable models can support pricing strategy, product positioning, and competitive benchmarking.
+Rather than focusing only on predictive accuracy, the project emphasizes **economic interpretability and model stability**, combining multicollinearity diagnostics with modern regularization methods:
 
-Problem Overview
+- Ridge Regression  
+- Lasso Regression  
+- Elastic Net  
+
+The goal is to understand **what drives vehicle market value** and demonstrate how interpretable models can support:
+
+- pricing strategy
+- product positioning
+- competitive benchmarking
+
+---
+
+# Problem Overview
 
 Vehicle pricing reflects a combination of:
 
-engineering characteristics
-
-performance capability
-
-vehicle size and weight
-
-drivetrain configuration
-
-body style segmentation
+- engineering characteristics
+- performance capability
+- vehicle size and weight
+- drivetrain configuration
+- body style segmentation
 
 Manufacturers must balance these factors when positioning vehicles in the market.
 
 This project models vehicle prices using regression techniques to answer two key questions:
 
-Which vehicle attributes drive price the most?
+**1️⃣ Which vehicle attributes drive price the most?**
 
-How do we build stable, interpretable models when predictors are highly correlated?
+**2️⃣ How do we build stable, interpretable models when predictors are highly correlated?**
 
-Data
+---
 
-The dataset contains characteristics of 2004 model-year vehicles.
+# Dataset
+
+The dataset contains characteristics of **2004 model-year vehicles**.
 
 Typical variables include:
 
-engine size
+- engine size
+- horsepower
+- vehicle weight
+- fuel economy
+- drivetrain (RWD / AWD)
+- vehicle body type
+- wheelbase and vehicle dimensions
+- dealer cost and retail price
 
-horsepower
+### Target Variable
 
-vehicle weight
+**MSRP (Manufacturer Suggested Retail Price)**
 
-fuel economy
-
-drivetrain (RWD / AWD)
-
-vehicle body type
-
-wheelbase and vehicle dimensions
-
-dealer cost and retail price
-
-Target variable:
-
-MSRP (Manufacturer Suggested Retail Price)
-
-Because vehicle prices are right-skewed, the modeling target uses:
-
+Vehicle prices are right-skewed, so the modeling target uses:
 log(MSRP)
-Project Workflow
+
+---
+
+# Project Workflow
 
 The project follows a structured modeling pipeline:
+EDA → Feature Engineering → Multicollinearity Diagnostics
+→ OLS Baseline → Regularized Models → Model Interpretation
 
-EDA → Feature Engineering → Multicollinearity Diagnostics → 
-OLS Baseline → Regularized Models → Model Interpretation
+---
 
-Key stages include:
+# Exploratory Data Analysis
 
-Exploratory Data Analysis
+Initial analysis examines:
 
-Initial analysis examines the distribution of vehicle prices and relationships between vehicle characteristics and MSRP.
+- price distributions
+- relationships between vehicle characteristics and MSRP
+- potential outliers
 
-Feature Engineering
+---
 
-Economically meaningful features are created, including:
+# Feature Engineering
 
-power-to-weight ratio
+Economically meaningful features were created, including:
 
-average fuel efficiency
+- power-to-weight ratio
+- average fuel efficiency
+- vehicle footprint
+- drivetrain indicators
+- vehicle segment indicators
 
-vehicle footprint
+Log transformations were applied to stabilize skewed variables.
 
-drivetrain indicators
+---
 
-vehicle segment indicators
+# Multicollinearity Diagnostics
 
-Log transformations are applied to stabilize skewed variables.
-
-Multicollinearity Diagnostics
-
-Vehicle design variables are often strongly correlated.
+Vehicle design variables are often **strongly correlated**.
 
 To diagnose this, the project evaluates:
 
-pairwise correlations
+- pairwise correlations
+- variance inflation factors (VIF)
+- condition indices
 
-variance inflation factors (VIF)
+These diagnostics identify instability in **ordinary least squares models**.
 
-condition indices
+---
 
-This helps identify instability in ordinary least squares models.
+# Baseline Model: Ordinary Least Squares
 
-Baseline Model: Ordinary Least Squares
+An initial **OLS regression model** provides a benchmark for comparison.
 
-An initial OLS regression model provides a benchmark for comparison.
+### Actual vs Predicted Prices
 
-Actual vs Predicted Prices
+![OLS Prediction](lm_baseline_actual_vs_predicted_log_test.png)
 
-Residual Diagnostics
+### Residual Diagnostics
 
-These diagnostics highlight why multicollinearity can affect coefficient stability.
+![OLS Residual Plot](lm_baseline_residuals_vs_fitted.png)
 
-Regularized Regression Models
+These diagnostics highlight why **multicollinearity can affect coefficient stability**.
+
+---
+
+# Regularized Regression Models
 
 To address multicollinearity and improve generalization, the project compares:
 
-Ridge Regression
+- Ridge Regression
+- Lasso Regression
+- Elastic Net
 
-Lasso Regression
+These models shrink or select coefficients to produce **more stable predictions**.
 
-Elastic Net
+### Model Comparison
 
-These models shrink or select coefficients to produce more stable predictions.
+![Model Comparison](model_comparison_test_rmse_log.png)
 
-Model Comparison
+Elastic Net achieves the best balance between:
 
-Elastic Net achieves the best balance between predictive performance and interpretability.
+- predictive performance
+- interpretability
 
-Elastic Net Model Performance
+---
 
-Predicted vs Actual vehicle prices using the best regularized model:
+# Elastic Net Model Performance
 
-The model captures the majority of variation in vehicle prices while maintaining interpretable coefficients.
+Predicted vs Actual vehicle prices using the **best regularized model**:
 
-Key Drivers of Vehicle Price
+![Elastic Net Predictions](best_regularized_actual_vs_predicted_usd.png)
+
+The model captures most variation in vehicle prices while maintaining interpretable coefficients.
+
+---
+
+# Key Drivers of Vehicle Price
 
 The Elastic Net model identifies the most influential features affecting vehicle prices.
 
+![Feature Importance](elastic_net_feature_importance.png)
+
 Major drivers include:
 
-Vehicle weight
-
-Vehicle footprint
-
-Sports car classification
-
-Rear-wheel drive
-
-Engine size
+- vehicle weight
+- vehicle footprint
+- sports car classification
+- rear-wheel drive
+- engine size
 
 These results reflect real automotive market dynamics:
 
-heavier vehicles often indicate larger platforms or luxury features
+- heavier vehicles often indicate larger platforms or luxury features
+- sports cars command premium pricing
+- drivetrain and performance characteristics affect positioning
 
-sports cars command premium pricing
+---
 
-drivetrain and performance characteristics affect positioning
-
-Repository Structure
+# Repository Structure
 vehicle-price-modeling
 │
 ├── data
-│   └── raw dataset
+│ └── raw dataset
 │
 ├── scripts
-│   ├── 01_data_exploration.R
-│   ├── 02_multicollinearity_diagnostics.R
-│   ├── 03_feature_engineering.R
-│   ├── 04_linear_model_baseline.R
-│   ├── 05_regularized_models.R
-│   └── 06_model_interpretation.R
+│ ├── 01_data_exploration.R
+│ ├── 02_multicollinearity_diagnostics.R
+│ ├── 03_feature_engineering.R
+│ ├── 04_linear_model_baseline.R
+│ ├── 05_regularized_models.R
+│ └── 06_model_interpretation.R
 │
-└── key result figures
-Business Applications
+└── modeling figures
+
+---
+
+# Business Applications
 
 This analysis demonstrates how interpretable models can support:
 
-Pricing Strategy
-
+### Pricing Strategy
 Understanding how vehicle attributes contribute to price helps guide MSRP decisions.
 
-Product Positioning
-
+### Product Positioning
 Manufacturers can identify which design features most strongly influence perceived value.
 
-Competitive Benchmarking
-
+### Competitive Benchmarking
 Automakers can compare vehicles with similar characteristics to identify pricing gaps.
 
-Tools Used
-R
-ggplot2
-dplyr
-glmnet
-readr
+---
+
+# Tools Used
+
+- R  
+- ggplot2  
+- dplyr  
+- glmnet  
+- readr  
+
+---
+
+
+
