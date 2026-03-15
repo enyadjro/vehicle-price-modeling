@@ -1,4 +1,4 @@
-# Interpretable Modeling of New Vehicle Prices
+# Interpretable Modeling of New Vehicle Prices: Multicollinearity, Regularization, and Economic Structure
 
 This project develops an **end-to-end interpretable regression pipeline** to model new vehicle prices using automotive characteristics such as:
 
