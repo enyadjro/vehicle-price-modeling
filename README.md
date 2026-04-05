@@ -1,5 +1,7 @@
 # Interpretable Modeling of New Vehicle Prices: Multicollinearity, Regularization, and Economic Structure
 
+Interpretable regression modeling to identify key drivers of vehicle pricing using regularization and feature analysis.
+
 ![Language](https://img.shields.io/badge/Language-R-blue)
 ![Domain](https://img.shields.io/badge/Domain-Automotive%20Pricing-orange)
 ![Task](https://img.shields.io/badge/Task-Price%20Prediction-red)
