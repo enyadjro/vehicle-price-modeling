@@ -1,10 +1,11 @@
 # Interpretable Modeling of New Vehicle Prices: Multicollinearity, Regularization, and Economic Structure
 
-![R](https://img.shields.io/badge/Language-R-blue)
-![Machine Learning](https://img.shields.io/badge/Method-Machine%20Learning-orange)
-![Regression](https://img.shields.io/badge/Model-Regression-green)
-![Elastic Net](https://img.shields.io/badge/Regularization-Elastic%20Net-purple)
-![Interpretability](https://img.shields.io/badge/Focus-Interpretability-lightgrey)
+![Language](https://img.shields.io/badge/Language-R-blue)
+![Method](https://img.shields.io/badge/Method-Regression%20Modeling-orange)
+![Models](https://img.shields.io/badge/Models-Ridge%20%7C%20Lasso%20%7C%20Elastic%20Net-green)
+![Task](https://img.shields.io/badge/Task-Price%20Prediction-red)
+![Focus](https://img.shields.io/badge/Focus-Interpretability%20%7C%20Feature%20Selection-lightgrey)
+![Evaluation](https://img.shields.io/badge/Evaluation-RMSE%20%7C%20MAE-purple)
 
 ## Key Results
 
